@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: listings-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: listings
+  template:
+    metadata:
+      labels:
+        app: listings
+    spec:
+      containers:
+        - name: listings
+          image: jarrodm1234/auction-website-listings
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: LISTINGS_MYSQL_URI
+              value: 'mysql://listings-mysql-srv:8080/listings'
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: NATS_CLUSTER_ID
+              value: auction
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: CLOUDINARY_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: cloudinary-api-key-secret
+                  key: CLOUDINARY_API_KEY
+            - name: CLOUDINARY_CLOUD_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: cloudinary-cloud-name-secret
+                  key: CLOUDINARY_CLOUD_NAME
+            - name: CLOUDINARY_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: cloudinary-api-secret-secret
+                  key: CLOUDINARY_API_SECRET
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: listings-srv
+spec:
+  selector:
+    app: listings
+  ports:
+    - name: listings
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
