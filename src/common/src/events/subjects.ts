@@ -7,4 +7,6 @@ export enum Subjects {
   BidDeleted = 'bid:deleted',
 
   UserCreated = 'user:created',
+
+  EmailCreated = 'email:created',
 }

@@ -20,3 +20,4 @@ export * from './events/bid-deleted-event';
 export * from './events/subjects';
 export * from './events/types/listing-status';
 export * from './events/user-created-event';
+export * from './events/email-created-event';
