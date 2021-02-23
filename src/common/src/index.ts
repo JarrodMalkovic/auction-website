@@ -22,3 +22,4 @@ export * from './events/types/listing-status';
 export * from './events/user-created-event';
 export * from './events/email-created-event';
 export * from './events/listing-updated-event';
+export * from './events/payment-created-event';

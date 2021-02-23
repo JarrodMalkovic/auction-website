@@ -9,5 +9,7 @@ export enum Subjects {
 
   UserCreated = 'user:created',
 
+  PaymentCreated = 'payment:created',
+
   EmailCreated = 'email:created',
 }
