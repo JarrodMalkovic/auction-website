@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments-mysql-depl
+spec:
+  selector:
+    matchLabels:
+      app: payments-mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: payments-mysql
+    spec:
+      containers:
+        - image: mysql:5.7
+          name: payments-mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: payments-mysql-srv
+spec:
+  selector:
+    app: payments-mysql
+  ports:
+    - name: db
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
