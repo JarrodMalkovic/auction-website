@@ -6,5 +6,7 @@ export interface ListingUpdatedEvent {
   data: {
     id: string;
     status: ListingStatus;
+    currentPrice: number;
+    currentWinnerId: string;
   };
 }
