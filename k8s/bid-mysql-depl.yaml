@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bid-mysql-depl
+spec:
+  selector:
+    matchLabels:
+      app: bid-mysql
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: bid-mysql
+    spec:
+      containers:
+        - image: mysql:5.7
+          name: bid-mysql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: password
+          ports:
+            - containerPort: 3306
+              name: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bid-mysql-srv
+spec:
+  selector:
+    app: bid-mysql
+  ports:
+    - name: db
+      protocol: TCP
+      port: 3306
+      targetPort: 3306
