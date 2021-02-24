@@ -1,0 +1,41 @@
+{
+  "name": "auction-website",
+  "version": "1.0.0",
+  "description": "Run Locally",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarrodjm/auction-website-new.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarrodjm/auction-website-new/issues"
+  },
+  "homepage": "https://github.com/jarrodjm/auction-website-new#readme",
+  "scripts": {
+    "format": "prettier-eslint --write \"{,!(node_modules)/**/}*.{ts,tsx}\""
+  },
+  "importSort": {
+    ".js, .jsx, .ts, .tsx": {
+      "style": "module",
+      "parser": "typescript"
+    }
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^8.0.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "import-sort-style-module": "^6.0.0",
+    "prettier": "^2.2.1",
+    "prettier-eslint": "^12.0.0",
+    "prettier-eslint-cli": "^5.0.0",
+    "prettier-plugin-import-sort": "0.0.6"
+  }
+}
