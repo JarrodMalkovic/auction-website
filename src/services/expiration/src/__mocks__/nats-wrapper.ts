@@ -1,4 +1,4 @@
-import { isJSDocCallbackTag } from "typescript";
+import { isJSDocCallbackTag } from 'typescript';
 
 export const natsWrapper = {
   client: {

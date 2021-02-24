@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import xw from 'xwind/macro';
 
 interface IProps {
-    onClickAway(): void;
+  onClickAway(): void;
 }
 
 const StyledClickAwayButton = styled.button(xw`
@@ -15,11 +15,12 @@ const StyledClickAwayButton = styled.button(xw`
 `);
 
 const ClickAwayButton = ({ onClickAway }: IProps) => {
-    return (
-        <StyledClickAwayButton
-            onClick={onClickAway}
-            tabIndex={-1}></StyledClickAwayButton>
-    );
+  return (
+    <StyledClickAwayButton
+      onClick={onClickAway}
+      tabIndex={-1}
+    ></StyledClickAwayButton>
+  );
 };
 
 export default ClickAwayButton;

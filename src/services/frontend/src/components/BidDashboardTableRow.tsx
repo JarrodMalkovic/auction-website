@@ -1,9 +1,36 @@
+import { ListingStatus } from '@jjmauction/common';
+import axios from 'axios';
+import Link from 'next/link';
+import React, { useContext } from 'react';
+import StripeCheckout from 'react-stripe-checkout';
+import { toast } from 'react-toastify';
+
+import AppContext from '../context/app-context';
 import { centsToDollars } from '../utils/cents-to-dollars';
 import Countdown from './Countdown';
-import Link from 'next/link';
 
 const BidDashboardTableRow = ({ bid, onDelete }) => {
-  console.log(bid);
+  const { auth } = useContext(AppContext);
+
+  const createPayment = async ({ id }) => {
+    try {
+      await axios.post('/api/payments', {
+        listingId: bid.listing.id,
+        token: id,
+      });
+      toast.success('Sucessfully signed in!');
+    } catch (err) {
+      err.response.data.errors.forEach((err) => toast.error(err.message));
+    }
+  };
+
+  const requiresPayment = () => {
+    return (
+      bid.listing.status === ListingStatus.AwaitingPayment &&
+      bid.listing.currentWinnerId === auth.currentUser.id
+    );
+  };
+
   return (
     <tr>
       <td className="px-6 py-4 whitespace-nowrap">
@@ -12,7 +39,7 @@ const BidDashboardTableRow = ({ bid, onDelete }) => {
             <img
               className="h-10 w-10 rounded-full"
               src={bid.user.avatar}
-              alt=""
+              alt="Your Avatar"
             />
           </div>
           <div className="ml-4">
@@ -45,12 +72,19 @@ const BidDashboardTableRow = ({ bid, onDelete }) => {
         </span>
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-        <button
-          onClick={onDelete}
-          className="text-indigo-600 hover:text-indigo-900"
-        >
-          Delete
-        </button>
+        {requiresPayment() ? (
+          <StripeCheckout
+            token={createPayment}
+            stripeKey="pk_test_51I7NJ5LQOU4SKz9IV9bdjUwPlGAb9UDKlwjKLxdmu52uQpPHfKn6KvpBIpEIIbI1XISEaFRmIpHgnpIGVFlwmKu300buDGjcwL"
+          />
+        ) : (
+          <button
+            onClick={onDelete}
+            className="text-indigo-600 hover:text-indigo-900"
+          >
+            Delete
+          </button>
+        )}
       </td>
     </tr>
   );

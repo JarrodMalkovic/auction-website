@@ -1,13 +1,14 @@
-import DashboardBreadcrumbs from '../../components/DashboardBreadcrumbs';
-import DashboardTabs from '../../components/DashboardTabs';
-import Error from '../../components/ErrorMessage';
-import ListingDashboardTableRow from '../../components/ListingDashboardTableRow';
-import AppContext from '../../context/app-context';
 import axios from 'axios';
 import { NextPageContext } from 'next';
 import Head from 'next/head';
 import React, { useState, useContext } from 'react';
 import { toast } from 'react-toastify';
+
+import DashboardBreadcrumbs from '../../components/DashboardBreadcrumbs';
+import DashboardTabs from '../../components/DashboardTabs';
+import Error from '../../components/ErrorMessage';
+import ListingDashboardTableRow from '../../components/ListingDashboardTableRow';
+import AppContext from '../../context/app-context';
 
 const Sold = ({ listingsData }) => {
   const {

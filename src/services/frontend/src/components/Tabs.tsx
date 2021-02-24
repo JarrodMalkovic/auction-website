@@ -13,11 +13,11 @@ const StyledTabsNav = styled.nav(xw`
 `);
 
 const Tabs: FunctionComponent = ({ children }) => {
-    return (
-        <StyledTabs>
-            <StyledTabsNav aria-label='Tabs'>{children}</StyledTabsNav>
-        </StyledTabs>
-    );
+  return (
+    <StyledTabs>
+      <StyledTabsNav aria-label="Tabs">{children}</StyledTabsNav>
+    </StyledTabs>
+  );
 };
 
 export default Tabs;

@@ -1,6 +1,7 @@
+import Link from 'next/link';
+
 import { centsToDollars } from '../utils/cents-to-dollars';
 import Countdown from './Countdown';
-import Link from 'next/link';
 
 const ListingDashboardTableRow = ({ listing, onDelete }) => {
   return (

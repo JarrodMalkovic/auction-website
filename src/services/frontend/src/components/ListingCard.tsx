@@ -1,9 +1,10 @@
-import { centsToDollars } from '../utils/cents-to-dollars';
-import Countdown from './Countdown';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import React from 'react';
 import xw from 'xwind/macro';
+
+import { centsToDollars } from '../utils/cents-to-dollars';
+import Countdown from './Countdown';
 
 interface IProps {
   name: string;

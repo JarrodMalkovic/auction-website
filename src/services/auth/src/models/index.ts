@@ -1,4 +1,5 @@
 import { Sequelize } from 'sequelize';
+
 import { UserFactory } from './user';
 
 const db =

@@ -8,6 +8,7 @@ import { currentUserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';
 import { signupRouter } from './routes/signup';
 import { signoutRouter } from './routes/signout';
+import { updatePasswordRouter } from './routes/update-password';
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(json());
 app.use(cookieSession({ signed: false, secure: false }));
 app.use(currentUser);
 
+app.use(updatePasswordRouter);
 app.use(currentUserRouter);
 app.use(signinRouter);
 app.use(signoutRouter);

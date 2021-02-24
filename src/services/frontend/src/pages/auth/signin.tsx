@@ -1,4 +1,3 @@
-import AppContext from '../../context/app-context';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -8,6 +7,8 @@ import React, { useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import xw from 'xwind/macro';
 import * as Yup from 'yup';
+
+import AppContext from '../../context/app-context';
 
 const StyledErrorMessage = styled.div(xw`
     text-sm

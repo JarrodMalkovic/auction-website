@@ -1,11 +1,11 @@
-import { dbConfig, User } from '../src/models';
+import { db, User } from '../src/models';
 
 beforeAll(async () => {
   process.env.JWT_KEY = 'test';
 
-  await dbConfig.authenticate();
+  await db.authenticate();
 
-  dbConfig.sync();
+  db.sync();
 });
 
 beforeEach(async () => {
@@ -16,5 +16,5 @@ beforeEach(async () => {
 });
 
 afterAll(async () => {
-  await dbConfig.close();
+  await db.close();
 });

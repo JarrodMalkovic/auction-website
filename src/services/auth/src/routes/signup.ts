@@ -9,6 +9,7 @@ import { UserCreatedPublisher } from '../events/publishers/user-created-publishe
 import { User } from '../models';
 import { toHash } from '../utils/to-hash';
 import { natsWrapper } from '../nats-wrapper';
+import { EmailCreatedPublisher } from '../events/publishers/email-created-publisher';
 
 const router = express.Router();
 
@@ -55,7 +56,7 @@ router.post(
       process.env.JWT_KEY!
     );
 
-    new UserCreatedPublisher(natsWrapper.client).publish({
+    await new UserCreatedPublisher(natsWrapper.client).publish({
       // @ts-ignore
       id: user.id,
       name,
@@ -63,8 +64,13 @@ router.post(
       avatar,
     });
 
-    req.session = { jwt: userJwt };
+    new EmailCreatedPublisher(natsWrapper.client).publish({
+      email: user.email,
+      subject: 'Thank you for registering an account!',
+      text: `Hello ${user.name}. Thank you for registering an account with auctionweb.site!`,
+    });
 
+    req.session = { jwt: userJwt };
     res.status(201).send(user);
   }
 );

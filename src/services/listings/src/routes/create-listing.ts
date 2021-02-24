@@ -1,15 +1,16 @@
-import express, { Request, Response } from 'express';
-import { body } from 'express-validator';
 import {
   BadRequestError,
   requireAuth,
   validateRequest,
 } from '@jjmauction/common';
-import { db, Listing } from '../models';
-import { ListingCreatedPublisher } from '../events/publishers/listing-created-publisher';
-import { natsWrapper } from '../nats-wrapper';
-import multer from 'multer';
 import cloudinary from 'cloudinary';
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import multer from 'multer';
+
+import { ListingCreatedPublisher } from '../events/publishers/listing-created-publisher';
+import { db, Listing } from '../models';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 

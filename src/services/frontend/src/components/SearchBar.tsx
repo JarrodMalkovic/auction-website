@@ -1,8 +1,9 @@
-import SearchIcon from './SearchIcon';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 import { useState, FormEvent } from 'react';
 import xw from 'xwind/macro';
+
+import SearchIcon from './SearchIcon';
 
 const StyledSearchBar = styled.div(xw`
     flex-1 

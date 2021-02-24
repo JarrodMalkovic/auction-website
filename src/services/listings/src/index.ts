@@ -6,6 +6,7 @@ import { natsWrapper } from './nats-wrapper';
 import { BidCreatedListener } from './events/listeners/bid-created-listener';
 import { BidDeletedListener } from './events/listeners/bid-deleted-listener';
 import { UserCreatedListener } from './events/listeners/user-created-listener';
+import { ListingExpiredListener } from './events/listeners/listing-expired-listener';
 
 (async () => {
   try {
@@ -43,7 +44,7 @@ import { UserCreatedListener } from './events/listeners/user-created-listener';
       throw new Error('NATS_CLUSTER_ID must be defined');
     }
 
-    /// @ts-ignore
+    // @ts-ignore
     await cloudinary.config({
       cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
       api_key: process.env.CLOUDINARY_API_KEY,
@@ -83,13 +84,8 @@ import { UserCreatedListener } from './events/listeners/user-created-listener';
       });
 
       socket.on('unsubscribe', (room) => {
-        try {
-          console.log('[socket]', 'leaving room :', room);
-          socket.leave(room);
-          console.log('[socket]', 'left room :', room);
-        } catch (e) {
-          console.log('[error]', 'leave room :', e);
-        }
+        socket.leave(room);
+        console.log('[socket]', 'left room :', room);
       });
 
       socket.on('disconnect', (reason) => {
@@ -100,6 +96,7 @@ import { UserCreatedListener } from './events/listeners/user-created-listener';
     new BidCreatedListener(natsWrapper.client).listen();
     new BidDeletedListener(natsWrapper.client).listen();
     new UserCreatedListener(natsWrapper.client).listen();
+    new ListingExpiredListener(natsWrapper.client).listen();
 
     console.log('The listings service has started up successfully');
   } catch (err) {

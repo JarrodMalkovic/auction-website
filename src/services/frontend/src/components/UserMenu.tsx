@@ -1,10 +1,11 @@
-import AppContext from '../context/app-context';
-import ClickAwayButton from './ClickAwayButton';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import Link from 'next/link';
 import React, { useState, useEffect, useContext } from 'react';
 import xw from 'xwind/macro';
+
+import AppContext from '../context/app-context';
+import ClickAwayButton from './ClickAwayButton';
 
 const StyledUserMenu = styled.div(xw`
     ml-4 

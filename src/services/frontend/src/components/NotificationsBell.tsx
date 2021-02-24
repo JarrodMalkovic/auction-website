@@ -52,45 +52,43 @@ const StyledText = styled.h1(xw`
 `);
 
 const NotificationsBell = () => {
-    const [showNotifications, setShowNotifications] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
 
-    const handleEscape = (e: any) => {
-        if (e.key === 'Esc' || e.key === 'Escape') {
-            setShowNotifications(false);
-        }
+  const handleEscape = (e: any) => {
+    if (e.key === 'Esc' || e.key === 'Escape') {
+      setShowNotifications(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleEscape);
+    return () => {
+      document.removeEventListener('keydown', handleEscape);
     };
+  }, []);
 
-    useEffect(() => {
-        document.addEventListener('keydown', handleEscape);
-        return () => {
-            document.removeEventListener('keydown', handleEscape);
-        };
-    }, []);
-
-    return (
-        <StyledNotificationsBell>
-            <StyledButton
-                onClick={() => setShowNotifications(!showNotifications)}>
-                <StyledLabel>View notifications</StyledLabel>
-                <NotificationsIcon />
-            </StyledButton>
-            {showNotifications && (
-                <>
-                    <ClickAwayButton
-                        onClickAway={() => setShowNotifications(false)}
-                    />
-                    <StyledNotificationsContent
-                        role='menu'
-                        aria-orientation='vertical'
-                        aria-labelledby='user-menu'>
-                        <StyledText role='menuitem'>
-                            You currently have no notifications!
-                        </StyledText>
-                    </StyledNotificationsContent>
-                </>
-            )}
-        </StyledNotificationsBell>
-    );
+  return (
+    <StyledNotificationsBell>
+      <StyledButton onClick={() => setShowNotifications(!showNotifications)}>
+        <StyledLabel>View notifications</StyledLabel>
+        <NotificationsIcon />
+      </StyledButton>
+      {showNotifications && (
+        <>
+          <ClickAwayButton onClickAway={() => setShowNotifications(false)} />
+          <StyledNotificationsContent
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="user-menu"
+          >
+            <StyledText role="menuitem">
+              You currently have no notifications!
+            </StyledText>
+          </StyledNotificationsContent>
+        </>
+      )}
+    </StyledNotificationsBell>
+  );
 };
 
 export default NotificationsBell;

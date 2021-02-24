@@ -4,6 +4,7 @@ import { natsWrapper } from './nats-wrapper';
 import { ListingCreatedListener } from './events/listeners/listing-created-listener';
 import { ListingDeletedListener } from './events/listeners/listing-deleted-lister';
 import { UserCreatedListener } from './events/listeners/user-created-listener';
+import { ListingUpdatedListener } from './events/listeners/listing-updated-listener';
 
 (async () => {
   try {
@@ -51,6 +52,7 @@ import { UserCreatedListener } from './events/listeners/user-created-listener';
 
     new ListingCreatedListener(natsWrapper.client).listen();
     new ListingDeletedListener(natsWrapper.client).listen();
+    new ListingUpdatedListener(natsWrapper.client).listen();
     new UserCreatedListener(natsWrapper.client).listen();
 
     console.log('The auth service has started up successfully');

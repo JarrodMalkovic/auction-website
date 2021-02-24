@@ -1,3 +1,8 @@
+import styled from '@emotion/styled';
+import axios from 'axios';
+import React, { useContext, useState } from 'react';
+import xw from 'xwind/macro';
+
 import AppContext from '../context/app-context';
 import CloseIcon from './CloseIcon';
 import HamburgerMenuIcon from './HamburgerMenuIcon';
@@ -5,10 +10,6 @@ import Logo from './Logo';
 import NavbarTab from './NavbarTab';
 import SearchBar from './SearchBar';
 import DesktopUserMenu from './UserMenu';
-import styled from '@emotion/styled';
-import axios from 'axios';
-import React, { useContext, useState } from 'react';
-import xw from 'xwind/macro';
 
 const StyledNavbar = styled.nav(xw`
     bg-white 

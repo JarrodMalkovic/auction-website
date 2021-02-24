@@ -4,8 +4,8 @@ import React from 'react';
 import xw from 'xwind/macro';
 
 interface IProps {
-    link: string;
-    name: string;
+  link: string;
+  name: string;
 }
 
 const StyledAnchorTag = styled.a(xw`
@@ -17,11 +17,11 @@ const StyledAnchorTag = styled.a(xw`
 `);
 
 const Breadcrumb = ({ link, name }: IProps) => {
-    return (
-        <StyledAnchorTag>
-            <Link href={link}>{name}</Link>
-        </StyledAnchorTag>
-    );
+  return (
+    <StyledAnchorTag>
+      <Link href={link}>{name}</Link>
+    </StyledAnchorTag>
+  );
 };
 
 export default Breadcrumb;

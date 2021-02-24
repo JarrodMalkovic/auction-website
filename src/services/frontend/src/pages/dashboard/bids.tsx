@@ -1,13 +1,14 @@
-import BidDashboardTableRow from '../../components/BidDashboardTableRow';
-import DashboardBreadcrumbs from '../../components/DashboardBreadcrumbs';
-import DashboardTabs from '../../components/DashboardTabs';
-import Error from '../../components/ErrorMessage';
-import AppContext from '../../context/app-context';
 import axios from 'axios';
 import { NextPageContext } from 'next';
 import Head from 'next/head';
 import React, { useState, useContext } from 'react';
 import { toast } from 'react-toastify';
+
+import BidDashboardTableRow from '../../components/BidDashboardTableRow';
+import DashboardBreadcrumbs from '../../components/DashboardBreadcrumbs';
+import DashboardTabs from '../../components/DashboardTabs';
+import Error from '../../components/ErrorMessage';
+import AppContext from '../../context/app-context';
 
 const Bids = ({ bidsData }) => {
   const {

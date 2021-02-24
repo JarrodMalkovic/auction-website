@@ -1,8 +1,9 @@
-import StyledSvg from '../styles/StyledSvg';
 import styled from '@emotion/styled';
 import Link from 'next/link';
 import React from 'react';
 import xw from 'xwind/macro';
+
+import StyledSvg from '../styles/StyledSvg';
 
 interface IProps {
   children: JSX.Element[];
