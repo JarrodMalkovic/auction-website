@@ -1,0 +1,62 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+    nginx.ingress.kubernetes.io/websocket-services: 'listing-srv'
+spec:
+  rules:
+    - host: modotron.xyz
+      http:
+        paths:
+          - path: /api/auth/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: auth-srv
+                port:
+                  number: 3000
+          - path: /api/bids/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: bid-srv
+                port:
+                  number: 3000
+          - path: /api/listings/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: listings-srv
+                port:
+                  number: 3000
+          - path: /api/payments/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: payments-srv
+                port:
+                  number: 3000
+          - path: /api/profile/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: profile-srv
+                port:
+                  number: 3000
+          - path: /socket.io/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: listings-srv
+                port:
+                  number: 3000
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: frontend-srv
+                port:
+                  number: 3000
