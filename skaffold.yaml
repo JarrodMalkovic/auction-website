@@ -36,8 +36,24 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+    - image: jarrodm1234/auction-website-profile
+      context: src/services/profile
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
     - image: jarrodm1234/auction-website-frontend
       context: src/services/frontend
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: jarrodm1234/auction-website-email
+      context: src/services/email
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -45,7 +61,15 @@ build:
           - '**/*.tsx'
           - '**/*.ts'
           - '**/*.js'
+    - image: jarrodm1234/auction-website-payments
+      context: src/services/payments
+      docker:
+        dockerfile: Dockerfile.dev
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
 deploy:
   kubectl:
     manifests:
-      - ./kubernetes-manifests/*
+      - ./k8s/*
