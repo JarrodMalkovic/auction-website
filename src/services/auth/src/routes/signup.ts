@@ -1,15 +1,15 @@
+import { BadRequestError, validateRequest } from '@jjmauction/common';
 import express, { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
 import { body } from 'express-validator';
-import { validateRequest, BadRequestError } from '@jjmauction/common';
-import { Op } from 'sequelize';
 import gravatar from 'gravatar';
+import jwt from 'jsonwebtoken';
+import { Op } from 'sequelize';
 
+import { EmailCreatedPublisher } from '../events/publishers/email-created-publisher';
 import { UserCreatedPublisher } from '../events/publishers/user-created-publisher';
 import { User } from '../models';
-import { toHash } from '../utils/to-hash';
 import { natsWrapper } from '../nats-wrapper';
-import { EmailCreatedPublisher } from '../events/publishers/email-created-publisher';
+import { toHash } from '../utils/to-hash';
 
 const router = express.Router();
 
@@ -57,11 +57,11 @@ router.post(
     );
 
     await new UserCreatedPublisher(natsWrapper.client).publish({
-      // @ts-ignore
-      id: user.id,
+      id: user.id!,
       name,
       email,
       avatar,
+      version: user.version!,
     });
 
     new EmailCreatedPublisher(natsWrapper.client).publish({

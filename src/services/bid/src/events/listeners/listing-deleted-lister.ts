@@ -1,7 +1,12 @@
-import { Listener, Subjects, ListingDeletedEvent } from '@jjmauction/common';
+import {
+  Listener,
+  ListingDeletedEvent,
+  NotFoundError,
+  Subjects,
+} from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
-import { Bid, Listing, db } from '../../models';
 
+import { Bid, Listing, db } from '../../models';
 import { queueGroupName } from './queue-group-name';
 
 export class ListingDeletedListener extends Listener<ListingDeletedEvent> {
@@ -10,9 +15,17 @@ export class ListingDeletedListener extends Listener<ListingDeletedEvent> {
 
   async onMessage(data: ListingDeletedEvent['data'], msg: Message) {
     await db.transaction(async (transaction) => {
-      const { id } = data;
+      const { id, version } = data;
 
-      await Listing.destroy({ where: { id }, transaction });
+      const listing = await Listing.findOne({
+        where: { id, version: version - 1 },
+      });
+
+      if (!listing) {
+        throw new NotFoundError();
+      }
+
+      await listing.destroy({ transaction });
       await Bid.destroy({ where: { listingId: id }, transaction });
 
       msg.ack();

@@ -1,11 +1,12 @@
-import express, { Request, Response } from 'express';
-import { db, Listing } from '../models';
 import {
   NotAuthorizedError,
   NotFoundError,
   requireAuth,
 } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
+
 import { ListingDeletedPublisher } from '../events/publishers/listing-deleted-publisher';
+import { Listing, db } from '../models';
 import { natsWrapper } from '../nats-wrapper';
 import { socketIOWrapper } from '../socket-io-wrapper';
 
@@ -39,6 +40,7 @@ router.delete(
 
       new ListingDeletedPublisher(natsWrapper.client).publish({
         id: listingId,
+        version: listing.version,
       });
 
       await socketIOWrapper.io

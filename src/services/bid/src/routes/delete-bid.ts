@@ -1,17 +1,17 @@
-import express, { Request, Response } from 'express';
 import {
+  BadRequestError,
+  ListingStatus,
   NotAuthorizedError,
   NotFoundError,
   requireAuth,
-  ListingStatus,
-  BadRequestError,
 } from '@jjmauction/common';
-
-import { Bid, db, Listing } from '../models';
-import { natsWrapper } from '../nats-wrapper';
-import { BidDeletedPublisher } from '../events/publishers/bid-deleted-publisher';
-import { BidAttributes, BidModel } from '../models/bid';
+import express, { Request, Response } from 'express';
 import { Op } from 'sequelize';
+
+import { BidDeletedPublisher } from '../events/publishers/bid-deleted-publisher';
+import { Bid, Listing, db } from '../models';
+import { BidAttributes, BidModel } from '../models/bid';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 
@@ -75,6 +75,7 @@ router.delete(
         await new BidDeletedPublisher(natsWrapper.client).publish({
           id: listing.id,
           newPrice: currentWinningBid.amount,
+          version: bid.version!,
         });
       }
 

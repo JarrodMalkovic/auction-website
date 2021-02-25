@@ -1,10 +1,11 @@
-import Breadcrumb from '../../components/Breadcrumb';
-import Breadcrumbs from '../../components/Breadcrumbs';
-import ListingCard from '../../components/ListingCard';
 import styled from '@emotion/styled';
 import Head from 'next/head';
 import React from 'react';
 import xw from 'xwind/macro';
+
+import Breadcrumb from '../../components/Breadcrumb';
+import Breadcrumbs from '../../components/Breadcrumbs';
+import ListingCard from '../../components/ListingCard';
 
 const StyledListings = styled.div(xw`
 	py-3
@@ -36,8 +37,9 @@ const Listings = ({ listings, search }) => {
         </p>
       </section>
       <StyledListings>
-        {listings.map((listing) => (
+        {listings.map((listing, idx) => (
           <ListingCard
+            key={idx}
             name={listing.title}
             expiresAt={listing.expiresAt}
             price={listing.currentPrice}

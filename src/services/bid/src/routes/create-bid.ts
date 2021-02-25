@@ -1,14 +1,14 @@
-import express, { Request, Response } from 'express';
 import {
+  BadRequestError,
+  ListingStatus,
   NotFoundError,
   requireAuth,
-  BadRequestError,
   validateRequest,
-  ListingStatus,
 } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
 
 import { BidCreatedPublisher } from '../events/publishers/bid-created-publisher';
-import { db, Bid, Listing } from '../models';
+import { Bid, Listing, db } from '../models';
 import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
@@ -53,13 +53,11 @@ router.post(
         { transaction }
       );
 
-      listing.set({ currentPrice: amount });
-      await listing.save({ transaction });
-
       await new BidCreatedPublisher(natsWrapper.client).publish({
         listingId,
         amount,
         userId: req.currentUser!.id,
+        version: bid.version!,
       });
 
       res.status(201).send(bid);

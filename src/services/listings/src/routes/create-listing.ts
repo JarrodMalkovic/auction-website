@@ -81,6 +81,7 @@ router.post(
         title,
         price,
         expiresAt,
+        version: listing.version,
       });
 
       res.status(201).send(listing);

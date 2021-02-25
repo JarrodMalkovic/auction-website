@@ -1,10 +1,10 @@
-import { Message } from 'node-nats-streaming';
 import {
   Listener,
-  Subjects,
   ListingUpdatedEvent,
   NotFoundError,
+  Subjects,
 } from '@jjmauction/common';
+import { Message } from 'node-nats-streaming';
 
 import { Listing } from '../../models';
 import { queueGroupName } from './queue-group-name';
@@ -14,9 +14,11 @@ export class ListingUpdatedListener extends Listener<ListingUpdatedEvent> {
   subject: Subjects.ListingUpdated = Subjects.ListingUpdated;
 
   async onMessage(data: ListingUpdatedEvent['data'], msg: Message) {
-    const { id, status, currentPrice, currentWinnerId } = data;
+    const { id, status, currentPrice, currentWinnerId, version } = data;
 
-    const listing = await Listing.findOne({ where: { id } });
+    const listing = await Listing.findOne({
+      where: { id, version: version - 1 },
+    });
 
     if (!listing) {
       throw new NotFoundError();

@@ -1,7 +1,8 @@
+import { ListingStatus, requireAuth } from '@jjmauction/common';
 import express, { Request, Response } from 'express';
-import { Listing, User } from '../models';
-import { requireAuth, ListingStatus } from '@jjmauction/common';
 import { Op } from 'sequelize';
+
+import { Listing, User } from '../models';
 
 const router = express.Router();
 
@@ -13,12 +14,8 @@ router.get(
       where: {
         [Op.and]: [
           { userId: req.currentUser.id },
-          {
-            [Op.or]: [
-              { status: { [Op.not]: ListingStatus.Active } },
-              { status: { [Op.not]: ListingStatus.Expired } },
-            ],
-          },
+          { status: { [Op.not]: ListingStatus.Active } },
+          { status: { [Op.not]: ListingStatus.Expired } },
         ],
       },
     });

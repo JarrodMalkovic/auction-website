@@ -1,12 +1,12 @@
 import {
   Listener,
-  Subjects,
   ListingExpiredEvent,
-  NotFoundError,
   ListingStatus,
+  NotFoundError,
+  Subjects,
 } from '@jjmauction/common';
-
 import { Message } from 'node-nats-streaming';
+
 import { Listing } from '../../models';
 import { natsWrapper } from '../../nats-wrapper';
 import { ListingUpdatedPublisher } from '../publishers/listing-updated-publisher';
@@ -36,6 +36,7 @@ export class ListingExpiredListener extends Listener<ListingExpiredEvent> {
       status: listing.status,
       currentPrice: listing.currentPrice,
       currentWinnerId: listing.currentWinnerId,
+      version: listing.version,
     });
 
     msg.ack();

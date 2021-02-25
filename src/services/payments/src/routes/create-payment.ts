@@ -1,16 +1,17 @@
-import express, { Request, Response } from 'express';
-import { body } from 'express-validator';
 import {
+  BadRequestError,
+  ListingStatus,
   NotFoundError,
   requireAuth,
   validateRequest,
-  ListingStatus,
-  BadRequestError,
 } from '@jjmauction/common';
-import { stripe } from '../stripe';
-import { Listing, Payment } from '../models';
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+
 import { PaymentCreatedPublisher } from '../events/publishers/payment-created-publisher';
+import { Listing, Payment } from '../models';
 import { natsWrapper } from '../nats-wrapper';
+import { stripe } from '../stripe';
 
 const router = express.Router();
 
@@ -53,6 +54,7 @@ router.post(
 
     new PaymentCreatedPublisher(natsWrapper.client).publish({
       id: listing.id!,
+      version: payment.version!,
     });
 
     res.status(201).send({ id: payment.id });

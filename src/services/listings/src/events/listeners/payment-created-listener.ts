@@ -1,11 +1,12 @@
 import {
   Listener,
-  Subjects,
-  PaymentCreatedEvent,
-  NotFoundError,
   ListingStatus,
+  NotFoundError,
+  PaymentCreatedEvent,
+  Subjects,
 } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
+
 import { Listing } from '../../models';
 import { natsWrapper } from '../../nats-wrapper';
 import { ListingUpdatedPublisher } from '../publishers/listing-updated-publisher';
@@ -30,6 +31,7 @@ export class PaymentCreatedListener extends Listener<PaymentCreatedEvent> {
       status: listing.status,
       currentPrice: listing.currentPrice,
       currentWinnerId: listing.currentWinnerId,
+      version: listing.version,
     });
 
     msg.ack();

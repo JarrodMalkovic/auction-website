@@ -1,16 +1,16 @@
 import {
-  Listener,
-  Subjects,
   BidCreatedEvent,
+  Listener,
   NotFoundError,
+  Subjects,
 } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
-import { socketIOWrapper } from '../../socket-io-wrapper';
 
 import { Listing, User } from '../../models';
-import { queueGroupName } from './queue-group-name';
-import { ListingUpdatedPublisher } from '../publishers/listing-updated-publisher';
 import { natsWrapper } from '../../nats-wrapper';
+import { socketIOWrapper } from '../../socket-io-wrapper';
+import { ListingUpdatedPublisher } from '../publishers/listing-updated-publisher';
+import { queueGroupName } from './queue-group-name';
 
 export class BidCreatedListener extends Listener<BidCreatedEvent> {
   queueGroupName = queueGroupName;
@@ -28,15 +28,14 @@ export class BidCreatedListener extends Listener<BidCreatedEvent> {
       throw new NotFoundError();
     }
 
-    listing.set({ currentPrice: amount, currentWinnerId: userId });
-
-    await listing.save();
+    await listing.update({ currentPrice: amount, currentWinnerId: userId });
 
     new ListingUpdatedPublisher(natsWrapper.client).publish({
       id: listingId,
       status: listing.status,
       currentPrice: listing.currentPrice,
       currentWinnerId: listing.currentWinnerId,
+      version: listing.version,
     });
 
     await socketIOWrapper.io
