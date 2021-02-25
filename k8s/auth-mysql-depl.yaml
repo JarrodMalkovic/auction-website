@@ -1,4 +1,4 @@
-apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+apiVersion: apps/v1 
 kind: Deployment
 metadata:
   name: auth-mysql-depl
@@ -25,6 +25,13 @@ spec:
           ports:
             - containerPort: 3306
               name: mysql
+          volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: auth-mysql-pv-claim
 ---
 apiVersion: v1
 kind: Service
