@@ -28,6 +28,11 @@ export class BidCreatedListener extends Listener<BidCreatedEvent> {
       throw new NotFoundError();
     }
 
+    // Check we are not processing events out of order
+    if (amount < listing.currentPrice) {
+      return msg.ack();
+    }
+
     await listing.update({ currentPrice: amount, currentWinnerId: userId });
 
     new ListingUpdatedPublisher(natsWrapper.client).publish({
