@@ -1,12 +1,13 @@
+import { ListingStatus } from '@jjmauction/common';
 import { DataTypes, Sequelize, UUIDV4 } from 'sequelize';
 import { BuildOptions, Model } from 'sequelize';
-import { ListingStatus } from '@jjmauction/common';
 
 export interface ListingAttributes {
   id: string;
   status?: ListingStatus;
   amount: number;
   winnerId: string;
+  version?: number;
 }
 
 export interface ListingModel
@@ -43,7 +44,9 @@ const ListingFactory = (sequelize: Sequelize): ListingStatic => {
         allowNull: false,
       },
     },
-    { version: true }
+    {
+      version: true,
+    }
   );
 };
 

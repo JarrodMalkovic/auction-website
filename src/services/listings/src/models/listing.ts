@@ -1,5 +1,5 @@
 import { ListingStatus } from '@jjmauction/common';
-import { DataTypes, Sequelize, UUIDV4, BuildOptions, Model } from 'sequelize';
+import { BuildOptions, DataTypes, Model, Sequelize, UUIDV4 } from 'sequelize';
 import SequelizeSlugify from 'sequelize-slugify';
 
 export interface ListingAttributes {
@@ -17,6 +17,7 @@ export interface ListingAttributes {
   imageId: string;
   smallImage: string;
   largeImage: string;
+  version?: number;
 }
 
 export interface ListingModel
@@ -45,7 +46,7 @@ const ListingFactory = (sequelize: Sequelize): ListingStatic => {
       },
       currentWinnerId: {
         type: DataTypes.UUID,
-        allowNull: false,
+        defaultValue: null,
       },
       status: {
         type: DataTypes.ENUM,

@@ -1,9 +1,10 @@
-import { DataTypes, Sequelize, UUIDV4, BuildOptions, Model  } from 'sequelize';
+import { BuildOptions, DataTypes, Model, Sequelize, UUIDV4 } from 'sequelize';
 
 export interface PaymentAttributes {
   id?: string;
   listingId: string;
   stripeId: string;
+  version?: number;
 }
 
 export interface PaymentModel
@@ -18,7 +19,7 @@ export type PaymentStatic = typeof Model & {
 
 const PaymentFactory = (sequelize: Sequelize): PaymentStatic => {
   return <PaymentStatic>sequelize.define(
-    'paymentss',
+    'payments',
     {
       id: {
         type: DataTypes.UUID,
@@ -35,7 +36,9 @@ const PaymentFactory = (sequelize: Sequelize): PaymentStatic => {
         allowNull: false,
       },
     },
-    { version: true }
+    {
+      version: true,
+    }
   );
 };
 

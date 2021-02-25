@@ -7,6 +7,7 @@ export interface BidAttributes {
   userId: string;
   amount: number;
   createdAt?: Date;
+  version?: number;
 }
 
 export interface BidModel extends Model<BidAttributes>, BidAttributes {}

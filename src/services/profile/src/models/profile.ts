@@ -1,5 +1,5 @@
 import { ListingStatus } from '@jjmauction/common';
-import { DataTypes, Sequelize, UUIDV4, BuildOptions, Model } from 'sequelize';
+import { BuildOptions, DataTypes, Model, Sequelize, UUIDV4 } from 'sequelize';
 
 export interface ProfileAttributes {
   id?: string;
@@ -9,6 +9,7 @@ export interface ProfileAttributes {
   lastName: string;
   country: string;
   createdAt?: Date;
+  version?: number;
 }
 
 export interface ProfileModel
@@ -22,28 +23,34 @@ export type ProfileStatic = typeof Model & {
 };
 
 const ProfileFactory = (sequelize: Sequelize): ProfileStatic => {
-  const Profile = <ProfileStatic>sequelize.define('profiles', {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: UUIDV4,
-      unique: true,
-      primaryKey: true,
+  const Profile = <ProfileStatic>sequelize.define(
+    'profiles',
+    {
+      id: {
+        type: DataTypes.UUID,
+        defaultValue: UUIDV4,
+        unique: true,
+        primaryKey: true,
+      },
+      userId: {
+        type: DataTypes.UUID,
+      },
+      about: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      firstName: { type: DataTypes.STRING, allowNull: false },
+      lastName: { type: DataTypes.STRING, allowNull: false },
+      country: { type: DataTypes.STRING, allowNull: false },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+      },
     },
-    userId: {
-      type: DataTypes.UUID,
-    },
-    about: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    firstName: { type: DataTypes.STRING, allowNull: false },
-    lastName: { type: DataTypes.STRING, allowNull: false },
-    country: { type: DataTypes.STRING, allowNull: false },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-  });
+    {
+      version: true,
+    }
+  );
 
   return Profile;
 };
