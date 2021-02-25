@@ -1,12 +1,13 @@
 import cloudinary from 'cloudinary';
-import { socketIOWrapper } from './socket-io-wrapper';
-import { db } from './models';
+
 import { app } from './app';
-import { natsWrapper } from './nats-wrapper';
 import { BidCreatedListener } from './events/listeners/bid-created-listener';
 import { BidDeletedListener } from './events/listeners/bid-deleted-listener';
-import { UserCreatedListener } from './events/listeners/user-created-listener';
 import { ListingExpiredListener } from './events/listeners/listing-expired-listener';
+import { UserCreatedListener } from './events/listeners/user-created-listener';
+import { db } from './models';
+import { natsWrapper } from './nats-wrapper';
+import { socketIOWrapper } from './socket-io-wrapper';
 
 (async () => {
   try {

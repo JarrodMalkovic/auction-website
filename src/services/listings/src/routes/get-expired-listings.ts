@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express';
-import { Listing, User } from '../models';
 import { ListingStatus } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
 import { Op } from 'sequelize';
+
+import { Listing } from '../models';
 
 const router = express.Router();
 

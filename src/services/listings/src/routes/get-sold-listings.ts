@@ -2,7 +2,7 @@ import { ListingStatus, requireAuth } from '@jjmauction/common';
 import express, { Request, Response } from 'express';
 import { Op } from 'sequelize';
 
-import { Listing, User } from '../models';
+import { Listing } from '../models';
 
 const router = express.Router();
 

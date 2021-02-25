@@ -1,7 +1,8 @@
-import express, { Request, Response } from 'express';
-import { Listing, User } from '../models';
 import { NotFoundError } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
 import { Sequelize } from 'sequelize';
+
+import { Listing, User } from '../models';
 
 const router = express.Router();
 

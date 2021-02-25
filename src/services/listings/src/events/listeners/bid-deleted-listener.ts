@@ -1,12 +1,15 @@
 import {
-  Listener,
-  Subjects,
   BidDeletedEvent,
+  Listener,
   NotFoundError,
+  Subjects,
 } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
-import { socketIOWrapper } from '../../socket-io-wrapper';
+
 import { Listing, User } from '../../models';
+import { natsWrapper } from '../../nats-wrapper';
+import { socketIOWrapper } from '../../socket-io-wrapper';
+import { ListingUpdatedPublisher } from '../publishers/listing-updated-publisher';
 import { queueGroupName } from './queue-group-name';
 
 export class BidDeletedListener extends Listener<BidDeletedEvent> {
@@ -25,9 +28,15 @@ export class BidDeletedListener extends Listener<BidDeletedEvent> {
       throw new NotFoundError();
     }
 
-    listing.set({ currentPrice: newPrice });
+    await listing.update({ currentPrice: newPrice });
 
-    await listing.save();
+    new ListingUpdatedPublisher(natsWrapper.client).publish({
+      id: listing.id,
+      version: listing.version,
+      status: listing.status,
+      currentPrice: listing.currentPrice,
+      currentWinnerId: listing.currentWinnerId,
+    });
 
     await socketIOWrapper.io
       .of('/socket')
