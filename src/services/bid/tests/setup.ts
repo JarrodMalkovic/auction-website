@@ -1,4 +1,4 @@
-import { db, Bid } from '../src/models';
+import { Bid, db } from '../src/models';
 
 beforeAll(async () => {
   process.env.JWT_KEY = 'test';

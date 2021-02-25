@@ -1,5 +1,5 @@
-import { db } from './models';
 import { app } from './app';
+import { db } from './models';
 import { natsWrapper } from './nats-wrapper';
 
 (async () => {

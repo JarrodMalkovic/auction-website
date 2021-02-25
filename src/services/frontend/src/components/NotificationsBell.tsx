@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import xw from 'xwind/macro';
 
 import ClickAwayButton from './ClickAwayButton';

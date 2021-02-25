@@ -1,11 +1,12 @@
-import express from 'express';
-import { json } from 'body-parser';
-import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError, currentUser } from '@jjmauction/common';
 import 'express-async-errors';
 
-import { deleteBidRouter } from './routes/delete-bid';
+import { NotFoundError, currentUser, errorHandler } from '@jjmauction/common';
+import { json } from 'body-parser';
+import cookieSession from 'cookie-session';
+import express from 'express';
+
 import { createBidRouter } from './routes/create-bid';
+import { deleteBidRouter } from './routes/delete-bid';
 import { getBidsRouter } from './routes/get-bids';
 import { getUserBidsRouter } from './routes/get-users-bids';
 

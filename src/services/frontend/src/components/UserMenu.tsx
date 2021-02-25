@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import axios from 'axios';
 import Link from 'next/link';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import xw from 'xwind/macro';
 
 import AppContext from '../context/app-context';

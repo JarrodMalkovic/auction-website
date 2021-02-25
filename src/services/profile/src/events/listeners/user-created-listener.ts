@@ -1,7 +1,7 @@
 import { Listener, Subjects, UserCreatedEvent } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
-import { Profile } from '../../models';
 
+import { Profile } from '../../models';
 import { queueGroupName } from './queue-group-name';
 
 export class UserCreatedListener extends Listener<UserCreatedEvent> {

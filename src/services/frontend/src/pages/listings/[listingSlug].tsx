@@ -1,19 +1,20 @@
+import styled from '@emotion/styled';
+import axios from 'axios';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { NextPageContext } from 'next';
+import Head from 'next/head';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import io from 'socket.io-client';
+import xw from 'xwind/macro';
+import * as Yup from 'yup';
+
 import Breadcrumb from '../../components/Breadcrumb';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import Countdown from '../../components/Countdown';
 import Error from '../../components/ErrorMessage';
 import { centsToDollars } from '../../utils/cents-to-dollars';
-import styled from '@emotion/styled';
-import axios from 'axios';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { NextPageContext } from 'next';
-import Head from 'next/head';
-import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
-import io from 'socket.io-client';
-import xw from 'xwind/macro';
-import * as Yup from 'yup';
 
 const StyledListing = styled.div(xw`
 	flex 

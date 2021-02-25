@@ -1,8 +1,9 @@
-import express from 'express';
+import 'express-async-errors';
+
+import { NotFoundError, currentUser, errorHandler } from '@jjmauction/common';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError, currentUser } from '@jjmauction/common';
-import 'express-async-errors';
+import express from 'express';
 
 import { createPaymentRouter } from './routes/create-payment';
 

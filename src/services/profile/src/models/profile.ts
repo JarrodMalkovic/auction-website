@@ -1,4 +1,3 @@
-import { ListingStatus } from '@jjmauction/common';
 import { BuildOptions, DataTypes, Model, Sequelize, UUIDV4 } from 'sequelize';
 
 export interface ProfileAttributes {

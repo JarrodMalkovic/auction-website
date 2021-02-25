@@ -1,5 +1,5 @@
+import { Listener, ListingCreatedEvent, Subjects } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
-import { Listener, Subjects, ListingCreatedEvent } from '@jjmauction/common';
 
 import { Listing } from '../../models';
 import { queueGroupName } from './queue-group-name';

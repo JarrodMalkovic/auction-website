@@ -1,13 +1,14 @@
-import express from 'express';
 import 'express-async-errors';
+
+import { NotFoundError, currentUser, errorHandler } from '@jjmauction/common';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError, currentUser } from '@jjmauction/common';
+import express from 'express';
 
 import { currentUserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';
-import { signupRouter } from './routes/signup';
 import { signoutRouter } from './routes/signout';
+import { signupRouter } from './routes/signup';
 import { updatePasswordRouter } from './routes/update-password';
 
 const app = express();

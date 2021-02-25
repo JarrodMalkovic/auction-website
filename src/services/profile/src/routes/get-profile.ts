@@ -1,9 +1,6 @@
+import { NotFoundError, requireAuth } from '@jjmauction/common';
 import express, { Request, Response } from 'express';
-import {
-  BadRequestError,
-  NotFoundError,
-  requireAuth,
-} from '@jjmauction/common';
+
 import { Profile } from '../models';
 
 const router = express.Router();

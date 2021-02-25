@@ -1,5 +1,5 @@
+import { EmailCreatedEvent, Listener, Subjects } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
-import { Listener, Subjects, EmailCreatedEvent } from '@jjmauction/common';
 import nodemailer from 'nodemailer';
 
 import { queueGroupName } from './queue-group-name';

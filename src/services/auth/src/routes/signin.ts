@@ -1,10 +1,10 @@
-import express, { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
-import { body } from 'express-validator';
 import { BadRequestError, validateRequest } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+import jwt from 'jsonwebtoken';
 
-import { comparePasswords } from '../utils/compare-passwords';
 import { User } from '../models';
+import { comparePasswords } from '../utils/compare-passwords';
 
 const router = express.Router();
 

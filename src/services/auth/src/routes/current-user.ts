@@ -1,5 +1,6 @@
-import express, { Request, Response } from 'express';
 import { currentUser } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
+
 import { User } from '../models';
 
 const router = express.Router();

@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { v4 as uuidv4, v4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 const signup = () => {
   // Build a JWT payload. { id, email }

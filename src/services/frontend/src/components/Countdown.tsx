@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { useState } from 'react';
 
 interface IProps {
@@ -25,10 +25,8 @@ const Countdown = ({ expiresAt }: IProps) => {
 
   const countdownTimer = () => {
     const countDownDate = Date.parse(expiresAt);
-    // Get today's date and time
     const now = Date.now();
 
-    // Find the distance between now and the count down date
     const distance = countDownDate - now;
 
     if (distance <= 0) {
@@ -37,7 +35,6 @@ const Countdown = ({ expiresAt }: IProps) => {
       });
     }
 
-    // Time calculations for days, hours, minutes and seconds
     const days = Math.floor(distance / (1000 * 60 * 60 * 24));
     const hours = Math.floor(
       (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)

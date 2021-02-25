@@ -1,10 +1,11 @@
-import express, { Request, Response } from 'express';
-import { body } from 'express-validator';
 import {
   NotFoundError,
   requireAuth,
   validateRequest,
 } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
+
 import { Profile } from '../models';
 
 const router = express.Router();

@@ -1,6 +1,6 @@
+import { requireAuth } from '@jjmauction/common';
 import express, { Request, Response } from 'express';
 
-import { requireAuth } from '@jjmauction/common';
 import { Bid } from '../models';
 
 const router = express.Router();

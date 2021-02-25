@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
-import { useState, FormEvent } from 'react';
+import { FormEvent, useState } from 'react';
 import xw from 'xwind/macro';
 
 import SearchIcon from './SearchIcon';

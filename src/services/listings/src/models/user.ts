@@ -1,5 +1,4 @@
-import { DataTypes, Sequelize, UUIDV4 } from 'sequelize';
-import { BuildOptions, Model } from 'sequelize';
+import { BuildOptions, DataTypes, Model, Sequelize, UUIDV4 } from 'sequelize';
 
 export interface UserAttributes {
   id?: string;

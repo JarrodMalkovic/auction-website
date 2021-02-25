@@ -1,15 +1,17 @@
+import 'react-toastify/dist/ReactToastify.css';
+
+import '../styles/globals.css';
+
 import styled from '@emotion/styled';
 import type { AppProps } from 'next/app';
 import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import xw from 'xwind/macro';
 
 import buildClient from '../api/base-client';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import AppContext from '../context/app-context';
-import '../styles/globals.css';
 
 const StyledMyApp = styled.div(xw`
     flex 

@@ -1,7 +1,7 @@
-import { db } from './models';
 import { app } from './app';
-import { natsWrapper } from './nats-wrapper';
 import { UserCreatedListener } from './events/listeners/user-created-listener';
+import { db } from './models';
+import { natsWrapper } from './nats-wrapper';
 
 (async () => {
   try {

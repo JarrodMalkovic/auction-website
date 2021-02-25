@@ -1,6 +1,5 @@
-import express, { Request, Response } from 'express';
-
 import { currentUser } from '@jjmauction/common';
+import express, { Request, Response } from 'express';
 
 const router = express.Router();
 

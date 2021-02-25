@@ -1,19 +1,14 @@
-import express, { Request, Response } from 'express';
-import jwt from 'jsonwebtoken';
-import { body } from 'express-validator';
 import {
-  validateRequest,
   BadRequestError,
   NotFoundError,
+  validateRequest,
 } from '@jjmauction/common';
-import { Op } from 'sequelize';
-import gravatar from 'gravatar';
+import express, { Request, Response } from 'express';
+import { body } from 'express-validator';
 
-import { UserCreatedPublisher } from '../events/publishers/user-created-publisher';
 import { User } from '../models';
-import { toHash } from '../utils/to-hash';
-import { natsWrapper } from '../nats-wrapper';
 import { comparePasswords } from '../utils/compare-passwords';
+import { toHash } from '../utils/to-hash';
 
 const router = express.Router();
 
