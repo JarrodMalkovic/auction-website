@@ -9,7 +9,7 @@ import { body } from 'express-validator';
 import multer from 'multer';
 
 import { ListingCreatedPublisher } from '../events/publishers/listing-created-publisher';
-import { db, Listing } from '../models';
+import { Listing, db } from '../models';
 import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();

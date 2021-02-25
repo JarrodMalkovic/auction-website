@@ -1,10 +1,10 @@
-import { Message } from 'node-nats-streaming';
 import {
   Listener,
+  ListingCreatedEvent,
   ListingStatus,
   Subjects,
-  ListingCreatedEvent,
 } from '@jjmauction/common';
+import { Message } from 'node-nats-streaming';
 
 import { Listing } from '../../models';
 import { queueGroupName } from './queue-group-name';
@@ -21,10 +21,10 @@ export class ListingCreatedListener extends Listener<ListingCreatedEvent> {
       title,
       slug,
       userId,
-      status: ListingStatus.Active,
       expiresAt,
       startPrice: price,
       currentPrice: price,
+      status: ListingStatus.Active,
     });
 
     msg.ack();

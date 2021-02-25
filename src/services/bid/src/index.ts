@@ -1,10 +1,10 @@
-import { db } from './models';
 import { app } from './app';
-import { natsWrapper } from './nats-wrapper';
 import { ListingCreatedListener } from './events/listeners/listing-created-listener';
 import { ListingDeletedListener } from './events/listeners/listing-deleted-lister';
-import { UserCreatedListener } from './events/listeners/user-created-listener';
 import { ListingUpdatedListener } from './events/listeners/listing-updated-listener';
+import { UserCreatedListener } from './events/listeners/user-created-listener';
+import { db } from './models';
+import { natsWrapper } from './nats-wrapper';
 
 (async () => {
   try {
@@ -45,7 +45,7 @@ import { ListingUpdatedListener } from './events/listeners/listing-updated-liste
     process.on('SIGTERM', () => natsWrapper.client.close());
 
     await db.authenticate();
-    await db.sync();
+    await db.sync({ force: true });
     console.log('Conneted to MySQL');
 
     app.listen(3000, () => console.log('Listening on port 3000!'));
