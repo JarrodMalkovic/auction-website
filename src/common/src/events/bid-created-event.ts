@@ -6,5 +6,6 @@ export interface BidCreatedEvent {
     listingId: string;
     userId: string;
     amount: number;
+    version: number;
   };
 }

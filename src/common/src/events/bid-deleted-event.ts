@@ -5,5 +5,6 @@ export interface BidDeletedEvent {
   data: {
     id: string;
     newPrice: number;
+    version: number;
   };
 }

@@ -9,5 +9,6 @@ export interface ListingCreatedEvent {
     slug: string;
     price: number;
     expiresAt: Date;
+    version: number;
   };
 }

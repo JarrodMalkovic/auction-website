@@ -6,5 +6,6 @@ export interface EmailCreatedEvent {
     email: string;
     subject: string;
     text: string;
+    version: number;
   };
 }
