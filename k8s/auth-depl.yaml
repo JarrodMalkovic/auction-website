@@ -36,7 +36,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-
 ---
 apiVersion: v1
 kind: Service
