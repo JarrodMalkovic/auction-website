@@ -8,7 +8,6 @@ const SettingsTabs: FunctionComponent = () => {
     <Tabs>
       <Tab link="/settings/profile" name="Profile" />
       <Tab link="/settings/security" name="Security and Privacy" />
-      <Tab link="/settings/notifications" name="Notifications" />
     </Tabs>
   );
 };
