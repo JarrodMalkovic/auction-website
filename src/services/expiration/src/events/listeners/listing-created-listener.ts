@@ -1,8 +1,8 @@
 import { Listener, ListingCreatedEvent, Subjects } from '@jjmauction/common';
 import { Message } from 'node-nats-streaming';
 
-import { queueGroupName } from './queue-group-name';
 import { expirationQueue } from '../../queues/expiration-queue';
+import { queueGroupName } from './queue-group-name';
 
 export class ListingCreatedListener extends Listener<ListingCreatedEvent> {
   subject: Subjects.ListingCreated = Subjects.ListingCreated;
