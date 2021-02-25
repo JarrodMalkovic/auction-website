@@ -21,6 +21,11 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-root-password-secret
+                  key: MYSQL_ROOT_PASSWORD
             - name: BID_MYSQL_URI
               value: 'mysql://bid-mysql-srv:8080/bid'
             - name: NATS_URL

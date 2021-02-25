@@ -18,7 +18,10 @@ spec:
           name: listings-mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
-              value: password
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-root-password-secret
+                  key: MYSQL_ROOT_PASSWORD
           ports:
             - containerPort: 3306
               name: mysql
