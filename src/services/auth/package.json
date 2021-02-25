@@ -7,7 +7,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "@jjmauction/common": "^1.0.15",
+    "@jjmauction/common": "^1.0.22",
     "@types/cookie-session": "^2.0.42",
     "@types/express": "^4.17.9",
     "@types/jsonwebtoken": "^8.5.0",
