@@ -8,7 +8,7 @@ metadata:
     nginx.ingress.kubernetes.io/websocket-services: 'listing-srv'
 spec:
   rules:
-    - host: modotron.xyz
+    - host: auctionweb.site
       http:
         paths:
           - path: /api/auth/?(.*)
