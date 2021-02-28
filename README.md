@@ -43,7 +43,26 @@
 | [Payments](./src/services/payments) | TypeScript, MySQL          | Description coming soon |
 | [Profile](./src/services/profile)   | TypeScript, MySQL          | Description coming soon |
 
+## 📸 Screenshots
 
+<table>
+  <tr>
+    <td>Browse Listings Page</td>
+     <td>Listing Page</td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="https://i.ibb.co/WD3ncrf/auction-website-browse-listings-screenshot.png"/></td>
+    <td  valign="top"><img src="https://i.ibb.co/MV8b6wv/auction-website-listing-page-screenshot.png"/></td>
+  </tr>
+   <tr>
+    <td>Dashboard Page</td>
+    <td>Settings Page</td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="https://i.ibb.co/m90KLbV/auction-website-dashboard-screenshot.png"/></td>
+    <td  valign="top"><img src="https://i.ibb.co/rvbxNw9/auction-website-profile-settings-screenshot.png"/></td>
+  </tr>
+ </table>
 
 ## 🚀 Local Development
 
