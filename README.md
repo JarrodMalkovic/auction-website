@@ -130,6 +130,12 @@ kubectl create secret generic cloudinary-cloud-name-secret --from-literal=CLOUDI
 kubectl create secret generic cloudinary-api-secret-secret --from-literal=CLOUDINARY_API_SECRET=<Your Secret Here>
 ```
 
+### Start skaffold
+
+```basb
+skaffold dev
+```
+
 
 ## 💻 Technologies
 
