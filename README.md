@@ -23,6 +23,10 @@
 
 ### Diagram
 
+<p align="center">
+  <img src="https://i.ibb.co/Jnw6XfL/Microservice-Architecture.png" />
+</p>
+
 ### Overview of services
 
 | Service                             | Technologies               | Description             |
