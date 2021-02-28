@@ -1,4 +1,4 @@
-<h1 align="center">A Full Stack auction website created using microservices</h1>
+<h1 align="center">A full stack Auction Website</h1>
 
 <h3 align="center">
   <a href="https://github.com/jarrodmalkovic/auction-website/issues">Report Bug</a> |
