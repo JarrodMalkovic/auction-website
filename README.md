@@ -82,37 +82,37 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 
 ### Create the required kubernetes secrets
 
-#### Create the JWT_KEY secret
+##### Create the JWT_KEY secret
 
 ```bash
 kubectl create secret generic jwt-key-secret --from-literal=JWT_KEY=<Your Secret Here>
 ```
 
-#### Create the MYSQL_ROOT_PASSWORD secret
+##### Create the MYSQL_ROOT_PASSWORD secret
 
 ```bash
 kubectl create secret generic mysql-root-password-secret --from-literal=MYSQL_ROOT_PASSWORD=<Your Secret Here>
 ```
 
-#### Create the EMAIL secret
+##### Create the EMAIL secret
 
 ```bash
 kubectl create secret generic email-secret --from-literal=EMAIL=<Your Secret Here>
 ```
 
-#### Create the EMAIL_PASSWORD secret
+##### Create the EMAIL_PASSWORD secret
 
 ```bash
 kubectl create secret generic email-password-secret --from-literal=EMAIL_PASSWORD=<Your Secret Here>
 ```
 
-#### Create the STRIPE_KEY secret
+##### Create the STRIPE_KEY secret
 
 ```bash
 kubectl create secret generic stripe-key-secret --from-literal=STRIPE_KEY=<Your Secret Here>
 ```
 
-#### Create the CLOUDINARY_API_KEY secret
+##### Create the CLOUDINARY_API_KEY secret
 
 ```bash
 kubectl create secret generic cloudinary-api-key-secret --from-literal=CLOUDINARY_API_KEY=<Your Secret Here>
@@ -124,7 +124,7 @@ kubectl create secret generic cloudinary-api-key-secret --from-literal=CLOUDINAR
 kubectl create secret generic cloudinary-cloud-name-secret --from-literal=CLOUDINARY_CLOUD_NAME=<Your Secret Here>
 ```
 
-#### Create the CLOUDINARY_API_SECRET secret
+##### Create the CLOUDINARY_API_SECRET secret
 
 ```bash
 kubectl create secret generic cloudinary-api-secret-secret --from-literal=CLOUDINARY_API_SECRET=<Your Secret Here>
