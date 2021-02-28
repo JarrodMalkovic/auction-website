@@ -17,7 +17,10 @@
 
 ## ✨ Features
 
-- Coming soon
+- Real-time bidding on auction listings between users using Socket.IO
+- Server Side Rendering on the front end using React and Next.js
+- Automated testing suites for each microservice
+
 
 ## 🏛️ Architecture 
 
