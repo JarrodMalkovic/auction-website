@@ -11,6 +11,7 @@
 
 - [Features](#-features)
 - [Architecture](#-architecture)
+- [Screenshots](#-screenshots)
 - [Local Development](#-local-development)
 - [Technologies](#-technologies)
 - [License](#-license)
