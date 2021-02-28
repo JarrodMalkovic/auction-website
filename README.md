@@ -35,7 +35,7 @@
 
 | Service                             | Technologies               | Description             |
 | ----------------------------------- | -------------------------- | ----------------------- |
-| [Auth](./src/services/auth)         | TypeScript, MySQL          | Description coming soon |
+| [Auth](./src/services/auth)         | TypeScript, MySQL          | Handles user regristration, logging in, sign out and resetting users passwords  |
 | [Bids](./src/services/bid)          | TypeScript, MySQL          | Description coming soon |
 | [Email](./src/services/email)       | TypeScript                 | Description coming soon |
 | [Expiration](./src/services/bid)    | TypeScript, Redis          | Description coming soon |
