@@ -35,14 +35,14 @@
 
 | Service                             | Technologies               | Description             |
 | ----------------------------------- | -------------------------- | ----------------------- |
-| [Auth](./src/services/auth)         | TypeScript, MySQL          | Handles user regristration, logging in, sign out and resetting users passwords  |
-| [Bids](./src/services/bid)          | TypeScript, MySQL          | Description coming soon |
-| [Email](./src/services/email)       | TypeScript                 | Description coming soon |
-| [Expiration](./src/services/bid)    | TypeScript, Redis          | Description coming soon |
-| [Frontend](./src/services/frontend) | TypeScript, React, Next.js | Description coming soon |
-| [Listings](./src/services/listings) | TypeScript, MySQL          | Description coming soon |
-| [Payments](./src/services/payments) | TypeScript, MySQL          | Description coming soon |
-| [Profile](./src/services/profile)   | TypeScript, MySQL          | Description coming soon |
+| [Auth](./src/services/auth)         | TypeScript, MySQL          | Handles user regristration, logging in, signing out and resetting users passwords  |
+| [Bids](./src/services/bid)          | TypeScript, MySQL          | Handles users placing bids on auction listings, allows for real-time bidding using Socket.io |
+| [Email](./src/services/email)       | TypeScript                 | Allows other services to send emails to users by publishing EmailCreated events |
+| [Expiration](./src/services/bid)    | TypeScript, Redis          | Handles expiring auction listings once they have ran out of time remaining on the listing |
+| [Frontend](./src/services/frontend) | TypeScript, React, Next.js | Handles serving the website to the user utilizing Server Side Rendering  |
+| [Listings](./src/services/listings) | TypeScript, MySQL          | Allows users to create and delete auction listings |
+| [Payments](./src/services/payments) | TypeScript, MySQL          | Allows users to pay for auction listings they have won   |
+| [Profile](./src/services/profile)   | TypeScript, MySQL          | Allows users to get a users profile or update their own |
 
 ## 📸 Screenshots
 
