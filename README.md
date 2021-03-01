@@ -19,7 +19,7 @@
 ## ✨ Features
 
 - Real-time bidding on auction listings between users using Socket.IO
-- Server Side Rendering on the front end using React and Next.js
+- Server Side Rendering using React and Next.js
 - Styled frontend using Tailwind CSS with Emotion Styled Components
 - Automated testing suites for each microservice
 - Handles payments using the Stripe API
