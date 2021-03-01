@@ -31,7 +31,7 @@
 ### Diagram
 
 <p align="center">
-  <img src="https://i.ibb.co/Jnw6XfL/Microservice-Architecture.png" />
+  <img src="https://i.ibb.co/kQx5zF2/auction-website-architecture-diagram.png" />
 </p>
 
 ### Overview of services
