@@ -31,7 +31,7 @@
 ### Diagram
 
 <p align="center">
-  <img src="https://i.ibb.co/kQx5zF2/auction-website-architecture-diagram.png" />
+  <img src="https://i.ibb.co/p2T8xc1/auction-website-diagram.png" />
 </p>
 
 ### Overview of services
