@@ -1,10 +1,5 @@
 <h1 align="center">A Full Stack Auction Website</h1>
 
-<h3 align="center">
-  <a href="https://github.com/jarrodmalkovic/auction-website/issues">Report Bug</a> |
-  <a href="https://github.com/jarrodmalkovic/auction-website/issues">Request Feature</a> 
-</h3>
-
 ![Tech logos](https://i.ibb.co/f4Qc3Fj/tech-info-auction-website.png)
 
 ## 📝 Table of contents
