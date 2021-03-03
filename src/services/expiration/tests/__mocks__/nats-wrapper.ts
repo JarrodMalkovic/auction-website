@@ -1,5 +1,3 @@
-import { isJSDocCallbackTag } from 'typescript';
-
 export const natsWrapper = {
   client: {
     publish: jest
