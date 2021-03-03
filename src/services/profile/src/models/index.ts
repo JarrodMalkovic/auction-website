@@ -4,7 +4,7 @@ import { ProfileFactory } from './profile';
 
 const db =
   process.env.NODE_ENV == 'test'
-    ? new Sequelize('sqlite::memory:', { logging: false })
+    ? new Sequelize('sqlite::memory:')
     : new Sequelize('mysql', 'root', process.env.MYSQL_ROOT_PASSWORD, {
         host: 'listings-mysql-srv',
         dialect: 'mysql',

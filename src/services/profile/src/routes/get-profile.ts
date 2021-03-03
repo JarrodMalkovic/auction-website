@@ -13,6 +13,9 @@ router.get(
       where: { userId: req.currentUser.id },
     });
 
+    console.log(req.currentUser.id);
+    console.log(profile);
+
     if (!profile) {
       throw new NotFoundError();
     }
