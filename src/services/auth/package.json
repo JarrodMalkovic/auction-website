@@ -30,13 +30,14 @@
     "@types/jest": "^26.0.19",
     "@types/supertest": "^2.0.10",
     "jest": "^26.6.3",
+    "sqlite3": "^5.0.2",
     "supertest": "^6.0.1",
     "ts-jest": "^26.4.4"
   },
   "scripts": {
     "start": "ts-node src/index.ts",
     "dev": "ts-node-dev src/index.ts",
-    "test": "cross-env NODE_ENV=test jest --watchAll --no-cache",
+    "test": "cross-env NODE_ENV=test jest --watchAll --no-cache --detectOpenHandles",
     "coverage": "cross-env NODE_ENV=test jest --coverage"
   },
   "jest": {

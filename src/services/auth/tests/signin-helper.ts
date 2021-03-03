@@ -1,5 +1,7 @@
 import request from 'supertest';
+
 import { app } from '../src/app';
+import { natsWrapper } from '../src/nats-wrapper';
 
 const signup = async () => {
   const email = 'test@test.com';
