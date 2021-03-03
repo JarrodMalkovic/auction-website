@@ -1,6 +1,6 @@
 import { app } from './app';
 import { ListingCreatedListener } from './events/listeners/listing-created-listener';
-import { ListingDeletedListener } from './events/listeners/listing-deleted-lister';
+import { ListingDeletedListener } from './events/listeners/listing-deleted-listener';
 import { ListingUpdatedListener } from './events/listeners/listing-updated-listener';
 import { UserCreatedListener } from './events/listeners/user-created-listener';
 import { db } from './models';

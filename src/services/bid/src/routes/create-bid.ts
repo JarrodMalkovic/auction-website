@@ -53,7 +53,7 @@ router.post(
         { transaction }
       );
 
-      await new BidCreatedPublisher(natsWrapper.client).publish({
+      new BidCreatedPublisher(natsWrapper.client).publish({
         listingId,
         amount,
         userId: req.currentUser!.id,

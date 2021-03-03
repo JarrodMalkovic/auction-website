@@ -9,9 +9,9 @@ export class UserCreatedListener extends Listener<UserCreatedEvent> {
   subject: Subjects.UserCreated = Subjects.UserCreated;
 
   async onMessage(data: UserCreatedEvent['data'], msg: Message) {
-    const { id, name, avatar, email } = data;
+    const { id, name, avatar, email, version } = data;
 
-    await User.create({ id, name, avatar, email });
+    await User.create({ id, name, avatar, email, version });
 
     msg.ack();
   }
