@@ -13,7 +13,7 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "setupFilesAfterEnv": [
-      "./src/test/setup.ts"
+      "./tests/setup.ts"
     ]
   },
   "keywords": [],
@@ -39,8 +39,12 @@
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.31",
     "@types/supertest": "^2.0.10",
+    "@types/uuid": "^8.3.0",
+    "cross-env": "^7.0.3",
     "jest": "^26.6.3",
+    "sqlite3": "^5.0.2",
     "supertest": "^6.0.1",
-    "ts-jest": "^26.4.4"
+    "ts-jest": "^26.4.4",
+    "uuid": "^8.3.2"
   }
 }
