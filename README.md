@@ -139,7 +139,7 @@ skaffold dev
 
 Project is created with:
 
-- TypeScript, MySQL, Node.js, Express.js, Docker, Kubernetes, Ingress Nginx, Skaffold, Next.js, React, Tailwind CSS, Styled Components, Jest, Stripe, 
+- TypeScript, MySQL, Node.js, Express.js, Docker, Kubernetes, Ingress Nginx, Skaffold, Next.js, React, Tailwind CSS, Styled Components, Jest, Stripe
 
 ## ⚖️ License
 
