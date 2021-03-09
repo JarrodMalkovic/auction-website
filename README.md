@@ -8,6 +8,7 @@
 - [Architecture](#-architecture)
 - [Screenshots](#-screenshots)
 - [Technologies](#-technologies)
+- [About this Project](#-about-this-project)
 - [Local Development](#-local-development)
 - [License](#-license)
 
@@ -69,6 +70,10 @@
 - [Emotion](https://emotion.sh/) - CSS-in-JS library designed for high performance style composition
 - [Formik](https://formik.org/) - React framework for building forms
 - [Yup](https://github.com/jquense/yup) - A form validation library
+
+## 📙 About this Project
+
+This project is a rewrite of a previous monolithic auction website I wrote. The repository for my monolithic auction website can be found [here.](https://github.com/jarrodmalkovic/auction-website-monolith) The purpose of this rewrite was to gain experience utilizing a microservices architecture after completing [Stephen Griders course on Microservices](https://www.udemy.com/course/microservices-with-node-js-and-react/).
 
 ## 🚀 Local Development
 
