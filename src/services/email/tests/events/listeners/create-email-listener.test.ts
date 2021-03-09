@@ -7,7 +7,7 @@ const setup = () => {
   const listener = new EmailCreatedListener(natsWrapper.client);
 
   const data: EmailCreatedEvent['data'] = {
-    email: 'bertileplays@gmail.com',
+    email: 'test@gmail.com',
     subject: 'test',
     text: 'test',
   };
