@@ -7,8 +7,8 @@
 - [Features](#-features)
 - [Architecture](#-architecture)
 - [Screenshots](#-screenshots)
-- [Local Development](#-local-development)
 - [Technologies](#-technologies)
+- [Local Development](#-local-development)
 - [License](#-license)
 
 ## ✨ Features
@@ -46,6 +46,29 @@
 
 ![desktop-dashboard-page](https://i.ibb.co/m90KLbV/auction-website-dashboard-screenshot.png)
 ![desktop-settings-page](https://i.ibb.co/rvbxNw9/auction-website-profile-settings-screenshot.png)
+
+## 💻 Technologies
+
+### Back-end
+- [Node.js](https://nodejs.org/en/) - Runtime environment for JS
+- [Express.js](https://expressjs.com/) - Node.js framework, makes process of building APIs easier & faster
+- [MySQL](https://www.mysql.com/) -  An open-source relational database management system
+- [Sequelize](https://sequelize.org/) - A promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server
+- [Cloudinary](https://cloudinary.com/) - For image uploading and manipulation
+- [Docker](https://www.docker.com/) - A platform for developing, shippinh and running applications
+- [Kubernetes](https://kubernetes.io/) -  An open-source system for automating deployment, scaling, and management of containerized applications
+- [Ingress NGINX](https://kubernetes.github.io/ingress-nginx/) - NGINX Ingress Controller for Kubernetes
+- [Skaffold](https://skaffold.dev/) - Handles the workflow for building, pushing and deploying applications
+- [Stripe](https://stripe.com/) - Online payment processing for internet businesses
+- [Jest](https://jestjs.io/) - A JavaScript testing framework
+
+### Front-end
+- [ReactJS](https://reactjs.org/) - Frontend framework
+- [Next.js](https://nextjs.org/) - React framework that enables server-side rendering
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [Emotion](https://emotion.sh/) - CSS-in-JS library designed for high performance style composition
+- [Formik](https://formik.org/) - React framework for building forms
+- [Yup](https://github.com/jquense/yup) - A form validation library
 
 ## 🚀 Local Development
 
@@ -118,17 +141,9 @@ kubectl create secret generic cloudinary-api-secret-secret --from-literal=CLOUDI
 skaffold dev
 ```
 
-
-## 💻 Technologies
-
-Project is created with:
-
-- TypeScript, MySQL, Node.js, Express.js, Docker, Kubernetes, Ingress Nginx, Skaffold, Next.js, React, Tailwind CSS, Styled Components, Jest, Stripe
-
 ## ⚖️ License
 
 This project is licensed under the Unlicense License
-
 
 <hr>
 
