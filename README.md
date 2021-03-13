@@ -34,14 +34,14 @@
 
 | Service                             | Technologies               | Description             |
 | ----------------------------------- | -------------------------- | ----------------------- |
-| [Auth](./src/services/auth)         | TypeScript, MySQL          | Handles user regristration, logging in, signing out and resetting users passwords  |
-| [Bids](./src/services/bid)          | TypeScript, MySQL          | Handles users placing bids on auction listings and allows for real-time bidding using Socket.io |
-| [Email](./src/services/email)       | TypeScript                 | Allows other services to send emails to users by publishing EmailCreated events |
-| [Expiration](./src/services/bid)    | TypeScript, Redis          | Expires auction listings once they have ran out of time remaining on the listing |
-| [Frontend](./src/services/frontend) | TypeScript, React, Next.js | Handles serving the website to the user utilizing Server Side Rendering using React with Next.js |
-| [Listings](./src/services/listings) | TypeScript, MySQL          | Allows users to create and delete auction listings |
-| [Payments](./src/services/payments) | TypeScript, MySQL          | Allows users to pay for auction listings they have won   |
-| [Profile](./src/services/profile)   | TypeScript, MySQL          | Allows users to get a users profile or update their own |
+| [Auth](./services/auth)         | TypeScript, MySQL          | Handles user regristration, logging in, signing out and resetting users passwords  |
+| [Bids](./services/bid)          | TypeScript, MySQL          | Handles users placing bids on auction listings and allows for real-time bidding using Socket.io |
+| [Email](./services/email)       | TypeScript                 | Allows other services to send emails to users by publishing EmailCreated events |
+| [Expiration](./services/bid)    | TypeScript, Redis          | Expires auction listings once they have ran out of time remaining on the listing |
+| [Frontend](./services/frontend) | TypeScript, React, Next.js | Handles serving the website to the user utilizing Server Side Rendering using React with Next.js |
+| [Listings](./services/listings) | TypeScript, MySQL          | Allows users to create and delete auction listings |
+| [Payments](./services/payments) | TypeScript, MySQL          | Allows users to pay for auction listings they have won   |
+| [Profile](./services/profile)   | TypeScript, MySQL          | Allows users to get a users profile or update their own |
 
 ## 📸 Screenshots
 ![desktop-listings-page](https://i.ibb.co/CtKKwbt/desktop-listings-page.png)

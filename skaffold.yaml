@@ -5,7 +5,7 @@ build:
     push: false
   artifacts:
     - image: jarrodm1234/auction-website-auth
-      context: src/services/auth
+      context: services/auth
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -13,7 +13,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: jarrodm1234/auction-website-listings
-      context: src/services/listings
+      context: services/listings
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -21,7 +21,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: jarrodm1234/auction-website-bid
-      context: src/services/bid
+      context: services/bid
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -29,7 +29,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: jarrodm1234/auction-website-expiration
-      context: src/services/expiration
+      context: services/expiration
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -37,7 +37,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: jarrodm1234/auction-website-profile
-      context: src/services/profile
+      context: services/profile
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -45,7 +45,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: jarrodm1234/auction-website-frontend
-      context: src/services/frontend
+      context: services/frontend
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -53,7 +53,7 @@ build:
           - src: 'src/**/*.ts'
             dest: .
     - image: jarrodm1234/auction-website-email
-      context: src/services/email
+      context: services/email
       docker:
         dockerfile: Dockerfile.dev
       sync:
@@ -62,7 +62,7 @@ build:
           - '**/*.ts'
           - '**/*.js'
     - image: jarrodm1234/auction-website-payments
-      context: src/services/payments
+      context: services/payments
       docker:
         dockerfile: Dockerfile.dev
       sync:
