@@ -44,7 +44,8 @@
 | [Profile](./src/services/profile)   | TypeScript, MySQL          | Allows users to get a users profile or update their own |
 
 ## 📸 Screenshots
-
+![desktop-listings-page](https://i.ibb.co/CtKKwbt/desktop-listings-page.png)
+![desktop-listing-page](https://i.ibb.co/vP7Wy1m/Listing-Screenshot.png)
 ![desktop-dashboard-page](https://i.ibb.co/m90KLbV/auction-website-dashboard-screenshot.png)
 ![desktop-settings-page](https://i.ibb.co/rvbxNw9/auction-website-profile-settings-screenshot.png)
 
