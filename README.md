@@ -15,7 +15,7 @@
 ## ✨ Features
 
 - Real-time bidding on auction listings between users using Socket.IO
-- Server Side Rendering using React and Next.js
+- Server-Side Rendering using React and Next.js
 - Styled frontend using Tailwind CSS with Emotion Styled Components
 - Automated testing suites for each microservice
 - Handles payments using the Stripe API
@@ -85,6 +85,12 @@ This project is a rewrite of a previous monolithic auction website I wrote. The 
 git clone https://github.com/jarrodmalkovic/auction-website.git
 ```
 
+### Edit your hosts file
+- Add the following line to your hosts file (https://phoenixnap.com/kb/how-to-edit-hosts-file-in-windows-mac-or-linux)
+```bash
+127.0.0.1 auctionweb.site
+```
+
 ### Install ingress-nginx
 
 ```bash
@@ -96,7 +102,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/cont
 - Create the JWT_KEY secret
 
 ```bash
-kubectl create secret generic jwt-key-secret --from-literal=JWT_KEY=<Your Secret Here>
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=<Your Secret Here>
 ```
 
 - Create the MYSQL_ROOT_PASSWORD secret
@@ -120,7 +126,7 @@ kubectl create secret generic email-password-secret --from-literal=EMAIL_PASSWOR
 - Create the STRIPE_KEY secret
 
 ```bash
-kubectl create secret generic stripe-key-secret --from-literal=STRIPE_KEY=<Your Secret Here>
+kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=<Your Secret Here>
 ```
 
 - Create the CLOUDINARY_API_KEY secret
@@ -146,6 +152,9 @@ kubectl create secret generic cloudinary-api-secret-secret --from-literal=CLOUDI
 ```basb
 skaffold dev
 ```
+
+### Open the project in your browser
+- The project will now be available locally on the domain auctionweb.site in your browser. If you are using Google Chrome you may have to type "thisisunsafe" while on the page to bypass a security warning
 
 ## ⚖️ License
 
