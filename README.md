@@ -19,7 +19,7 @@
 - Styled frontend using Tailwind CSS with Emotion Styled Components
 - Automated testing suites for each microservice
 - Handles payments using the Stripe API
-- Shares common code among services using a custom [npm package](./src/common)
+- Shares common code among services using a custom [npm package](./common)
 
 
 ## 🏛️ Architecture 
