@@ -160,9 +160,3 @@ skaffold dev
 
 This project is licensed under the Unlicense License
 
-<hr>
-
-<h3>
-  <a href="https://github.com/jarrodmalkovic/auction-website/issues">Report Bug</a> |
-  <a href="https://github.com/jarrodmalkovic/auction-website/issues">Request Feature</a> 
-</h3>
